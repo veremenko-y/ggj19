@@ -26,7 +26,7 @@ public class Sprinkler : MonoBehaviour
     {
         if(_remainingCooldownSeconds > 0f)
         {
-            _animator.SetBool("Activate", true);
+            _animator.SetTrigger("Activate");
             _remainingCooldownSeconds = _triggerCooldownSeconds;
         }
     }
