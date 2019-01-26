@@ -443,7 +443,7 @@ MonoBehaviour:
     type: 3}
   SprinklerPrice: 200
   HasRake: 0
-  RakeMenuSprite: {fileID: 21300000, guid: 3dc0b1e0f012cbd4090636e12aaff3da, type: 3}
+  RakeMenuSprite: {fileID: 21300000, guid: 37312a48bdbb68145801e11c2d2687ca, type: 3}
   RakePrefab: {fileID: 2279543091871078854, guid: a710772a9db91e44fb65264e1b0d6e84,
     type: 3}
   RakePrefabPreview: {fileID: 7336012949112924493, guid: 941e293fba948f44d85ddb033bcdfa27,
@@ -1433,75 +1433,6 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
---- !u!1001 &1644031346
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3287606704003545012, guid: 7403e3376f16ae24c8fb9707c88ee4ae,
-        type: 3}
-      propertyPath: m_Name
-      value: Wall
-      objectReference: {fileID: 0}
-    - target: {fileID: 3287606704003545008, guid: 7403e3376f16ae24c8fb9707c88ee4ae,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.68
-      objectReference: {fileID: 0}
-    - target: {fileID: 3287606704003545008, guid: 7403e3376f16ae24c8fb9707c88ee4ae,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.055137336
-      objectReference: {fileID: 0}
-    - target: {fileID: 3287606704003545008, guid: 7403e3376f16ae24c8fb9707c88ee4ae,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 2.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 3287606704003545008, guid: 7403e3376f16ae24c8fb9707c88ee4ae,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3287606704003545008, guid: 7403e3376f16ae24c8fb9707c88ee4ae,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3287606704003545008, guid: 7403e3376f16ae24c8fb9707c88ee4ae,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3287606704003545008, guid: 7403e3376f16ae24c8fb9707c88ee4ae,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3287606704003545008, guid: 7403e3376f16ae24c8fb9707c88ee4ae,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3287606704003545008, guid: 7403e3376f16ae24c8fb9707c88ee4ae,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3287606704003545008, guid: 7403e3376f16ae24c8fb9707c88ee4ae,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3287606704003545008, guid: 7403e3376f16ae24c8fb9707c88ee4ae,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7403e3376f16ae24c8fb9707c88ee4ae, type: 3}
 --- !u!1 &1795926582
 GameObject:
   m_ObjectHideFlags: 0
