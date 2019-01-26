@@ -962,8 +962,8 @@ MonoBehaviour:
   _levels:
   - Level1
   - Level2
-  _failureScreen: {fileID: 0}
-  _winScreen: {fileID: 0}
+  _failureScreen: {fileID: 1209796712}
+  _winScreen: {fileID: 1516219500}
 --- !u!1 &1139850610
 GameObject:
   m_ObjectHideFlags: 0
