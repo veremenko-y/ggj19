@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Sirenix.OdinInspector;
+using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemySpawner : MonoBehaviour
@@ -16,8 +17,10 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     LayerMask _mask = -1;
 
-    Home _home = null;
+    [ShowInInspector, ReadOnly]
     int _numberSpawned = 0;
+
+    Home _home = null;
 
     void Awake()
     {
