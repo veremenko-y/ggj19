@@ -2,7 +2,7 @@
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class FailureScreen : MonoBehaviour
+public class GameOverScreen : MonoBehaviour
 {
     [SerializeField]
     Button _backToMenu = null;

@@ -1,24 +1,30 @@
 ﻿using System;
 using System.Collections;
-using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
     string[] _levels = null;
+    [SerializeField]
+    GameOverScreen _failureScreen = null;
+    [SerializeField]
+    GameOverScreen _winScreen = null;
 
     int _nextLevelIndex = 0;
     Level _activeLevel = null;
     Coroutine _loading = null;
-    FailureScreen _failureScreen = null;
+    TrapPlacerBehavior _trapPlacer = null;
+
 
     void Awake()
     {
         _activeLevel = FindObjectOfType<Level>();
 
-        _failureScreen = Resources.FindObjectsOfTypeAll<FailureScreen>().First();
         _failureScreen.gameObject.SetActive(false);
+        _winScreen.gameObject.SetActive(false);
+
+        _trapPlacer = FindObjectOfType<TrapPlacerBehavior>();
     }
 
     void Update()
@@ -30,7 +36,7 @@ public class GameManager : MonoBehaviour
 
         if(_activeLevel != null && _activeLevel.GetState() == LevelState.Failure)
         {
-            _failureScreen.gameObject.SetActive(true);
+            Lose();
         }
     }
 
@@ -66,14 +72,21 @@ public class GameManager : MonoBehaviour
         // No more levels to load
         else
         {
-            GameOver();
+            Win();
         }
 
         _loading = null;
     }
 
-    void GameOver()
+    void Lose()
     {
-        // TODO handle game over
+        _failureScreen.gameObject.SetActive(true);
+        _trapPlacer.gameObject.SetActive(false);
+    }
+
+    void Win()
+    {
+        _winScreen.gameObject.SetActive(true);
+        _trapPlacer.gameObject.SetActive(false);
     }
 }
