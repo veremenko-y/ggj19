@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 7460184888079366786}
   m_Layer: 0
   m_Name: CityInspector
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -385,6 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 043222696826f7040bb679f80fc5c31c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _homeDamage: 1
 --- !u!114 &8319336355768739572
 MonoBehaviour:
   m_ObjectHideFlags: 0
