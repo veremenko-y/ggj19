@@ -15,7 +15,6 @@ public class MenuBehavior : MonoBehaviour
     private bool creditsRunning = false;
     private float originalYForCredits;
 
-    // Start is called before the first frame update
     void Start()
     {
         NewGame.onClick.AddListener(NewGameOnClick);
@@ -23,11 +22,14 @@ public class MenuBehavior : MonoBehaviour
         Exit.onClick.AddListener(ExitOnClick);
 
         originalYForCredits = CreditsText.rectTransform.position.y;
+
+        MusicPlayer music = FindObjectOfType<MusicPlayer>();
+        music.PlayMenu();
     }
 
     void NewGameOnClick()
     {
-        if (NewGameSceneName != null)
+        if(NewGameSceneName != null)
         {
             SceneManager.LoadScene(NewGameSceneName);
         }
@@ -48,12 +50,12 @@ public class MenuBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (creditsRunning)
+        if(creditsRunning)
         {
             var p = CreditsText.rectTransform.position;
             p.y = p.y + CreditsSpeed * Time.deltaTime;
             CreditsText.rectTransform.position = p;
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if(Input.GetKeyDown(KeyCode.Escape))
             {
                 p.y = originalYForCredits;
                 CreditsText.rectTransform.position = p;
