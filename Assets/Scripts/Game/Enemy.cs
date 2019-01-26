@@ -1,12 +1,18 @@
-﻿using UnityEngine;
+﻿using Sirenix.OdinInspector;
+using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Animator))]
 public class Enemy : MonoBehaviour
 {
+    [SerializeField, MinValue(1)]
+    int _homeDamage = 1;
+
     Animator _animator = null;
     NavMeshAgent _agent = null;
+
+    public int GetHomeDamage() { return _homeDamage; }
 
     void Awake()
     {

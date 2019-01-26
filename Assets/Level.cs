@@ -6,30 +6,39 @@ public enum LevelState
 {
     None,
     Running,
-    Complete
+    Complete,
+    Failure
 }
 
 public class Level : MonoBehaviour
 {
-    [ShowInInspector]
+    [ShowInInspector, ReadOnly]
     LevelState _state = LevelState.None;
 
     EnemySpawner[] _spawners = null;
     Enemy[] _remainingEnemies = null;
+    Home _home = null;
 
     public LevelState GetState() { return _state; }
 
     void Awake()
     {
+        _home = FindObjectOfType<Home>();
         _spawners = FindObjectsOfType<EnemySpawner>();
         _state = LevelState.Running;
+
+        _home.RestoreToMaxHealth();
     }
 
     void Update()
     {
         if(_state == LevelState.Running)
         {
-            if(_spawners.All(s => !s.HasSpawnsRemaining()))
+            if(!_home.HasRemainingHealth())
+            {
+                _state = LevelState.Failure;
+            }
+            else if(_spawners.All(s => !s.HasSpawnsRemaining()))
             {
                 if(_remainingEnemies == null)
                 {
@@ -42,5 +51,11 @@ public class Level : MonoBehaviour
                 }
             }
         }
+    }
+
+    [Button()]
+    void DebugCompleteLevel()
+    {
+        _state = LevelState.Complete;
     }
 }
