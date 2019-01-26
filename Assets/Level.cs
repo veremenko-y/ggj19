@@ -30,6 +30,7 @@ public class Level : MonoBehaviour
     EnemySpawner[] _spawners = null;
     Enemy[] _remainingEnemies = null;
     Home _home = null;
+    MusicPlayer _musicPlayer = null;
     Coroutine _startingSequence = null;
     Coroutine _endingSequence = null;
 
@@ -39,6 +40,7 @@ public class Level : MonoBehaviour
     {
         _home = FindObjectOfType<Home>();
         _spawners = FindObjectsOfType<EnemySpawner>();
+        _musicPlayer = FindObjectOfType<MusicPlayer>();
         _state = LevelState.Starting;
 
         _home.RestoreToMaxHealth();
@@ -46,6 +48,7 @@ public class Level : MonoBehaviour
 
     IEnumerator StartingSequence()
     {
+        _musicPlayer.PlaySoftGame();
         _titleText.gameObject.SetActive(true);
         yield return new WaitForSecondsRealtime(_waitBeforeStartSeconds);
 
@@ -56,6 +59,8 @@ public class Level : MonoBehaviour
         {
             spawner.StartSpawning();
         }
+
+        _musicPlayer.PlayHardGame();
 
         _startingSequence = null;
     }
