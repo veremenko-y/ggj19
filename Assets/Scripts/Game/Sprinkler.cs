@@ -10,10 +10,12 @@ public class Sprinkler : MonoBehaviour
     float _remainingCooldownSeconds = 0f;
 
     Animator _animator = null;
+    AudioSource _audioSource = null;
 
     void Awake()
     {
         _animator = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -24,10 +26,11 @@ public class Sprinkler : MonoBehaviour
     [Button("Debug Trigger")]
     void TryTrigger()
     {
-        if(_remainingCooldownSeconds > 0f)
+        if(_remainingCooldownSeconds <= 0f)
         {
-            _animator.SetTrigger("Activate");
+            _audioSource.Play();
             _remainingCooldownSeconds = _triggerCooldownSeconds;
+            _animator?.SetTrigger("Activate");
         }
     }
 
