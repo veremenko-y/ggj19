@@ -22,11 +22,16 @@ public class EnemySpawner : MonoBehaviour
 
     Home _home = null;
 
-    public bool HasSpawnsRemaining() { return _numberSpawned < _numberToSpawn; }
-
     void Awake()
     {
         _home = FindObjectOfType<Home>();
+    }
+
+    public bool HasSpawnsRemaining() { return _numberSpawned < _numberToSpawn; }
+
+    public void StartSpawning()
+    {
+        CancelInvoke("Spawn");
         InvokeRepeating("Spawn", _startAfterSeconds, _spawnRateSeconds);
     }
 

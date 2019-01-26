@@ -1,13 +1,14 @@
 ﻿using Sirenix.OdinInspector;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum LevelState
 {
     None,
     Starting,
     Running,
-    Ending,
     Complete,
     Failure
 }
@@ -15,13 +16,13 @@ public enum LevelState
 public class Level : MonoBehaviour
 {
     [SerializeField]
-    string _title = "Level";
-
-    [SerializeField]
     int _waitBeforeStartSeconds = 2;
 
     [SerializeField]
     int _waitAfterEndSeconds = 2;
+
+    [SerializeField]
+    Text _titleText = null;
 
     [ShowInInspector, ReadOnly]
     LevelState _state = LevelState.None;
@@ -29,6 +30,8 @@ public class Level : MonoBehaviour
     EnemySpawner[] _spawners = null;
     Enemy[] _remainingEnemies = null;
     Home _home = null;
+    Coroutine _startingSequence = null;
+    Coroutine _endingSequence = null;
 
     public LevelState GetState() { return _state; }
 
@@ -36,18 +39,46 @@ public class Level : MonoBehaviour
     {
         _home = FindObjectOfType<Home>();
         _spawners = FindObjectsOfType<EnemySpawner>();
-        _state = LevelState.Running;
+        _state = LevelState.Starting;
 
         _home.RestoreToMaxHealth();
     }
 
+    IEnumerator StartingSequence()
+    {
+        _titleText.gameObject.SetActive(true);
+        yield return new WaitForSecondsRealtime(_waitBeforeStartSeconds);
+
+        _titleText.gameObject.SetActive(false);
+        _state = LevelState.Running;
+
+        foreach(EnemySpawner spawner in _spawners)
+        {
+            spawner.StartSpawning();
+        }
+
+        _startingSequence = null;
+    }
+
+    IEnumerator EndingSequence(LevelState newState)
+    {
+        yield return new WaitForSecondsRealtime(_waitAfterEndSeconds);
+        _state = newState;
+
+        _endingSequence = null;
+    }
+
     void Update()
     {
-        if(_state == LevelState.Running)
+        if(_state == LevelState.Starting && _startingSequence == null)
+        {
+            _startingSequence = StartCoroutine(StartingSequence());
+        }
+        else if(_state == LevelState.Running && _endingSequence == null)
         {
             if(!_home.HasRemainingHealth())
             {
-                _state = LevelState.Failure;
+                _endingSequence = StartCoroutine(EndingSequence(LevelState.Failure));
             }
             else if(_spawners.All(s => !s.HasSpawnsRemaining()))
             {
@@ -58,7 +89,7 @@ public class Level : MonoBehaviour
 
                 if(_remainingEnemies.All(r => r == null) || !_remainingEnemies.Any())
                 {
-                    _state = LevelState.Complete;
+                    _endingSequence = StartCoroutine(EndingSequence(LevelState.Complete));
                 }
             }
         }
