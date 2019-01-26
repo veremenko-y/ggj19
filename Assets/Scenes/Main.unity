@@ -435,17 +435,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrapButtonPrefab: {fileID: 8108548118021300986, guid: c68548b80aa5ca74b9e4faaf2d48e71d,
     type: 3}
-  HasSprinkler: 0
-  HasRake: 0
   SprinklerMenuSprite: {fileID: 21300000, guid: 3dc0b1e0f012cbd4090636e12aaff3da,
     type: 3}
-  RakeMenuSprite: {fileID: 0}
   SprinklerPrefab: {fileID: 6280410601031591836, guid: 9d7ab3b51e7123f4faba8317b58ceca3,
     type: 3}
-  RakePrefab: {fileID: 0}
   SprinklerPrefabPreview: {fileID: 643106756701594857, guid: a107522dd0db4f645b3c017735e66325,
     type: 3}
+  SprinklerPrice: 200
+  HasRake: 0
+  RakeMenuSprite: {fileID: 0}
+  RakePrefab: {fileID: 0}
   RakePrefabPreview: {fileID: 0}
+  RakePrice: 400
 --- !u!1 &310118384
 GameObject:
   m_ObjectHideFlags: 0

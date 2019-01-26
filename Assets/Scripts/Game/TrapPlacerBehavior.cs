@@ -19,6 +19,7 @@ public class TrapPlacerBehavior : MonoBehaviour
 
     private string SelectedTrap = null;
     private Transform objectToPlace = null;
+    private Transform objectToAdd = null;
     private int priceToPay = 0;
     private Canvas canvas;
     private Text pointsText;
@@ -56,11 +57,13 @@ public class TrapPlacerBehavior : MonoBehaviour
         if (SelectedTrap == "Sprinkler")
         {
             objectToPlace = Instantiate(SprinklerPrefabPreview);
+            objectToAdd = SprinklerPrefab;
             priceToPay = SprinklerPrice;
         }
         else if (SelectedTrap == "Rake")
         {
             objectToPlace = Instantiate(RakePrefabPreview);
+            objectToAdd = RakePrefab;
             priceToPay = RakePrice;
         }
     }
@@ -78,7 +81,7 @@ public class TrapPlacerBehavior : MonoBehaviour
                 if (Input.GetMouseButton(0) &&
                     hit.transform.name == "Ground")
                 {
-                    Instantiate(SprinklerPrefab, objectToPlace.transform.position, Quaternion.identity);
+                    Instantiate(objectToAdd, objectToPlace.transform.position, Quaternion.identity);
                     gameManager.Points -= priceToPay;
                     DestroyPreviewObject();
                 }
@@ -93,7 +96,7 @@ public class TrapPlacerBehavior : MonoBehaviour
         pointsText.text = $"Points: {gameManager.Points}";
 
         buttons[0].GetComponent<Button>().interactable = gameManager.Points >= SprinklerPrice;
-        buttons[1].GetComponent<Button>().interactable = gameManager.Points >= RakePrice;
+        buttons[1].GetComponent<Button>().interactable = true;// gameManager.Points >= RakePrice;
     }
 
     private void DestroyPreviewObject()
