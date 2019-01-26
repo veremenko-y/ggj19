@@ -10,21 +10,25 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     float _spawnRateSeconds = 10f;
     [SerializeField]
-    Transform _destination = null;
+    EnemyDestination _destination = EnemyDestination.None;
     [SerializeField]
     LayerMask _mask = -1;
 
+    Home _home = null;
+
     void Awake()
     {
+        _home = FindObjectOfType<Home>();
         InvokeRepeating("Spawn", _startAfterSeconds, _spawnRateSeconds);
     }
 
     void Spawn()
     {
-        NavMeshAgent enemy = GameObject.Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
+        NavMeshAgent enemy = Instantiate(_enemyPrefab, transform);
+        Transform destination = _home.GetDestination(_destination);
 
         NavMeshHit hit;
-        if(NavMesh.SamplePosition(_destination.position, out hit, 10f, _mask))
+        if(NavMesh.SamplePosition(destination.position, out hit, 10f, _mask))
         {
             enemy.SetDestination(hit.position);
         }
@@ -36,6 +40,6 @@ public class EnemySpawner : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(transform.position, 0.1f);
+        Gizmos.DrawWireSphere(transform.position, 0.5f);
     }
 }
