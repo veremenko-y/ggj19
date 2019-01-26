@@ -54,7 +54,7 @@ public class FadeInOutBehavior : MonoBehaviour
                 else
                 {
                     // TODO Add scene name
-                    SceneManager.LoadScene("TODO");
+                    SceneManager.LoadScene("Menu");
                 }
                 break;
         }
