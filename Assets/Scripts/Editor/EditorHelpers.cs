@@ -12,7 +12,7 @@ namespace Assets.Scripts.Editor
             GameObject selection = Selection.activeGameObject;
             if(selection != null)
             {
-                selection.transform.LookAt(Camera.main.transform.position, -Vector3.up);
+                selection.transform.LookAt(Camera.main.transform.position, Vector3.up);
             }
         }
 
