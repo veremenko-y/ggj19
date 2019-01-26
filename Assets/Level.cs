@@ -12,6 +12,15 @@ public enum LevelState
 
 public class Level : MonoBehaviour
 {
+    [SerializeField]
+    string _title = "Level";
+
+    [SerializeField]
+    int _waitBeforeStartSeconds = 2;
+
+    [SerializeField]
+    int _waitAfterEndSeconds = 2;
+
     [ShowInInspector, ReadOnly]
     LevelState _state = LevelState.None;
 
