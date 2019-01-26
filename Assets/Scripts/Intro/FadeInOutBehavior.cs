@@ -31,6 +31,11 @@ public class FadeInOutBehavior : MonoBehaviour
     void Update()
     {
         if(!Started) return;
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(_sceneName);
+            return;
+        }
         fadeTotalTime += Time.deltaTime;
         switch(state)
         {

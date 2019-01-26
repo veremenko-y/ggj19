@@ -17,14 +17,17 @@ public class GameManager : MonoBehaviour
     TrapPlacerBehavior _trapPlacer = null;
 
 
+    public int Points = 0;
+    public int BasePoints = 50;
+
+
     void Awake()
     {
         _activeLevel = FindObjectOfType<Level>();
-
         _failureScreen.gameObject.SetActive(false);
         _winScreen.gameObject.SetActive(false);
-
         _trapPlacer = FindObjectOfType<TrapPlacerBehavior>();
+        StartCoroutine(AddMorePoints());
     }
 
     void Update()
@@ -88,5 +91,17 @@ public class GameManager : MonoBehaviour
     {
         _winScreen.gameObject.SetActive(true);
         _trapPlacer.gameObject.SetActive(false);
+    }
+
+    IEnumerator AddMorePoints()
+    {
+        while (true)
+        {
+            if (_activeLevel != null && _activeLevel.GetState() == LevelState.Running)
+            {
+                Points += BasePoints * _nextLevelIndex;
+            }
+            yield return new WaitForSeconds(1);
+        }
     }
 }

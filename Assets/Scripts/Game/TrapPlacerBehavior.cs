@@ -5,34 +5,48 @@ using UnityEngine.UI;
 public class TrapPlacerBehavior : MonoBehaviour
 {
     public Transform TrapButtonPrefab;
-    public bool HasSprinkler;
-    public bool HasRake;
 
     public Sprite SprinklerMenuSprite;
-    public Sprite RakeMenuSprite;
-
     public Transform SprinklerPrefab;
-    public Transform RakePrefab;
-
     public Transform SprinklerPrefabPreview;
+    public int SprinklerPrice = 200;
+
+    public bool HasRake = false;
+    public Sprite RakeMenuSprite;
+    public Transform RakePrefab;
     public Transform RakePrefabPreview;
+    public int RakePrice = 400;
 
     private string SelectedTrap = null;
     private Transform objectToPlace = null;
+    private int priceToPay = 0;
     private Canvas canvas;
+    private Text pointsText;
     private List<Transform> buttons = new List<Transform>();
+    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         canvas = GetComponentInChildren<Canvas>();
+        pointsText = canvas.GetComponentInChildren<Text>();
 
         var button = Instantiate(TrapButtonPrefab, canvas.transform);
         button.name = "Sprinkler";
         button.GetComponent<Image>().sprite = SprinklerMenuSprite;
         var rectTransform = button.GetComponent<RectTransform>();
-        rectTransform.anchoredPosition = new Vector3(32, -32);
+        rectTransform.anchoredPosition = new Vector3(0, -64);
         button.GetComponent<Button>().onClick.AddListener(() => OnButtonClick("Sprinkler"));
+        buttons.Add(button);
+
+
+        button = Instantiate(TrapButtonPrefab, canvas.transform);
+        button.name = "Rake";
+        button.GetComponent<Image>().sprite = RakeMenuSprite;
+        rectTransform = button.GetComponent<RectTransform>();
+        rectTransform.anchoredPosition = new Vector3(64, -64);
+        button.GetComponent<Button>().onClick.AddListener(() => OnButtonClick("Rake"));
         buttons.Add(button);
     }
 
@@ -42,6 +56,12 @@ public class TrapPlacerBehavior : MonoBehaviour
         if (SelectedTrap == "Sprinkler")
         {
             objectToPlace = Instantiate(SprinklerPrefabPreview);
+            priceToPay = SprinklerPrice;
+        }
+        else if (SelectedTrap == "Rake")
+        {
+            objectToPlace = Instantiate(RakePrefabPreview);
+            priceToPay = RakePrice;
         }
     }
 
@@ -59,6 +79,7 @@ public class TrapPlacerBehavior : MonoBehaviour
                     hit.transform.name == "Ground")
                 {
                     Instantiate(SprinklerPrefab, objectToPlace.transform.position, Quaternion.identity);
+                    gameManager.Points -= priceToPay;
                     DestroyPreviewObject();
                 }
             }
@@ -68,6 +89,11 @@ public class TrapPlacerBehavior : MonoBehaviour
         {
             DestroyPreviewObject();
         }
+
+        pointsText.text = $"Points: {gameManager.Points}";
+
+        buttons[0].GetComponent<Button>().interactable = gameManager.Points >= SprinklerPrice;
+        buttons[1].GetComponent<Button>().interactable = gameManager.Points >= RakePrice;
     }
 
     private void DestroyPreviewObject()
