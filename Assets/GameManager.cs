@@ -10,10 +10,14 @@ public class GameManager : MonoBehaviour
     int _nextLevelIndex = 0;
     Level _activeLevel = null;
     Coroutine _loading = null;
+    FailureScreen _failureScreen = null;
 
     void Awake()
     {
         _activeLevel = FindObjectOfType<Level>();
+
+        _failureScreen = FindObjectOfType<FailureScreen>();
+        _failureScreen.gameObject.SetActive(false);
     }
 
     void Update()
@@ -21,6 +25,11 @@ public class GameManager : MonoBehaviour
         if((_activeLevel == null || _activeLevel.GetState() == LevelState.Complete) && _loading == null)
         {
             _loading = StartCoroutine(TryLoadNextLevel());
+        }
+
+        if(_activeLevel != null && _activeLevel.GetState() == LevelState.Failure)
+        {
+            _failureScreen.gameObject.SetActive(true);
         }
     }
 
