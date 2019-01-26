@@ -40,9 +40,10 @@ public class GenericEnemyBehavior : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        if (hitCoolDown <= 0)
+        if (hitCoolDown <= 0 &&
+          other.gameObject.tag == "Trap")
         {
             currentHealth--;
             Debug.Log($"{gameObject.name} health {currentHealth}");
