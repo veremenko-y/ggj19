@@ -5,7 +5,9 @@ using UnityEngine;
 public enum LevelState
 {
     None,
+    Starting,
     Running,
+    Ending,
     Complete,
     Failure
 }
