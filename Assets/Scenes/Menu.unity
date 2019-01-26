@@ -458,9 +458,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "<size=20>Graphics\r</size>\nMelissa McNeil\r\nKarman Ngan\r\n\n<size=20>Music\r</size>\r\nDanielle\r
-    Waniandy\n\n<size=20>Development</size>\r\nMatt Church\r\nYaroslav Veremenko \r\nQuy
-    Tran"
+  m_Text: "<size=20>Graphics\r</size>\nKarman Ngan\r\nMelissa McNeil\r\n\n<size=20>Music\r</size>\r\nDanielle\r
+    Waniandy\nElli Bookhalter\n\n<size=20>Development</size>\r\nMatt Church\r\nYaroslav
+    Veremenko \r\nQuy Tran"
 --- !u!222 &488293303
 CanvasRenderer:
   m_ObjectHideFlags: 0
