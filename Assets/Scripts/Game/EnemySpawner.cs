@@ -10,11 +10,14 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     float _spawnRateSeconds = 10f;
     [SerializeField]
+    int _numberToSpawn = 10;
+    [SerializeField]
     EnemyDestination _destination = EnemyDestination.None;
     [SerializeField]
     LayerMask _mask = -1;
 
     Home _home = null;
+    int _numberSpawned = 0;
 
     void Awake()
     {
@@ -35,6 +38,12 @@ public class EnemySpawner : MonoBehaviour
         else
         {
             Debug.LogError("Couldn't find nav mesh position!");
+        }
+
+        _numberSpawned++;
+        if(_numberSpawned >= _numberToSpawn)
+        {
+            CancelInvoke("Spawn");
         }
     }
 

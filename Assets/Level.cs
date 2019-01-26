@@ -1,13 +1,18 @@
-﻿using UnityEngine;
+﻿using Sirenix.OdinInspector;
+using UnityEngine;
+
+public enum LevelState
+{
+    None,
+    Starting,
+    Running,
+    Complete
+}
 
 public class Level : MonoBehaviour
 {
-    void Awake()
-    {
-    }
+    [ShowInInspector]
+    LevelState _state = LevelState.Starting;
 
-    void Update()
-    {
-        
-    }
+    public LevelState GetState() { return _state; }
 }
