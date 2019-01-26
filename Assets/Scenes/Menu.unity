@@ -535,7 +535,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "<size=20>Graphics\r</size>\nKarman Ngan\r\nMelissa McNeil\r\n\n<size=20>Music\r</size>\r\nDanielle\r
-    Waniandy\nElli Bookhalter\n\n<size=20>Development</size>\r\nMatt Church\r\nYaroslav
+    Waniandy\nElli Bookhalter\n\n<size=20>Programming</size>\r\nMatt Church\r\nYaroslav
     Veremenko \r\nQuy Tran"
 --- !u!222 &488293303
 CanvasRenderer:
