@@ -27,10 +27,28 @@ public class MusicPlayer : MonoBehaviour
         _source = GetComponent<AudioSource>();
     }
 
+    void Play(AudioClip clip)
+    {
+        if(_source.clip != clip || !_source.isPlaying)
+        {
+            _source.loop = true;
+            _source.clip = clip;
+            _source.Play();
+        }
+    }
+
     public void PlayMenu()
     {
-        _source.loop = true;
-        _source.clip = _menu;
-        _source.Play();
+        Play(_menu);
+    }
+
+    public void PlaySoftGame()
+    {
+        Play(_softGame);
+    }
+
+    public void PlayHardGame()
+    {
+        Play(_hardGame);
     }
 }
