@@ -17,8 +17,15 @@ public class TrapPlacerBehavior : MonoBehaviour
     public Transform RakePrefabPreview;
     public int RakePrice = 400;
 
+    public bool HasWall = false;
+    public Sprite WallMenuSprite;
+    public Transform WallPrefab;
+    public Transform WallPrefabPreview;
+    public int WallPrice = 100;
+
     private string SelectedTrap = null;
     private Transform objectToPlace = null;
+    private Transform objectToAdd = null;
     private int priceToPay = 0;
     private Canvas canvas;
     private Text pointsText;
@@ -40,13 +47,20 @@ public class TrapPlacerBehavior : MonoBehaviour
         button.GetComponent<Button>().onClick.AddListener(() => OnButtonClick("Sprinkler"));
         buttons.Add(button);
 
-
         button = Instantiate(TrapButtonPrefab, canvas.transform);
         button.name = "Rake";
         button.GetComponent<Image>().sprite = RakeMenuSprite;
         rectTransform = button.GetComponent<RectTransform>();
         rectTransform.anchoredPosition = new Vector3(64, -64);
         button.GetComponent<Button>().onClick.AddListener(() => OnButtonClick("Rake"));
+        buttons.Add(button);
+
+        button = Instantiate(TrapButtonPrefab, canvas.transform);
+        button.name = "Wall";
+        button.GetComponent<Image>().sprite = WallMenuSprite;
+        rectTransform = button.GetComponent<RectTransform>();
+        rectTransform.anchoredPosition = new Vector3(64*2, -64);
+        button.GetComponent<Button>().onClick.AddListener(() => OnButtonClick("Wall"));
         buttons.Add(button);
     }
 
@@ -56,12 +70,20 @@ public class TrapPlacerBehavior : MonoBehaviour
         if (SelectedTrap == "Sprinkler")
         {
             objectToPlace = Instantiate(SprinklerPrefabPreview);
+            objectToAdd = SprinklerPrefab;
             priceToPay = SprinklerPrice;
         }
         else if (SelectedTrap == "Rake")
         {
             objectToPlace = Instantiate(RakePrefabPreview);
+            objectToAdd = RakePrefab;
             priceToPay = RakePrice;
+        }
+        else if (SelectedTrap == "Wall")
+        {
+            objectToPlace = Instantiate(WallPrefabPreview);
+            objectToAdd = WallPrefab;
+            priceToPay = WallPrice;
         }
     }
 
@@ -78,7 +100,7 @@ public class TrapPlacerBehavior : MonoBehaviour
                 if (Input.GetMouseButton(0) &&
                     hit.transform.name == "Ground")
                 {
-                    Instantiate(SprinklerPrefab, objectToPlace.transform.position, Quaternion.identity);
+                    Instantiate(objectToAdd, objectToPlace.transform.position, Quaternion.identity);
                     gameManager.Points -= priceToPay;
                     DestroyPreviewObject();
                 }
@@ -94,6 +116,7 @@ public class TrapPlacerBehavior : MonoBehaviour
 
         buttons[0].GetComponent<Button>().interactable = gameManager.Points >= SprinklerPrice;
         buttons[1].GetComponent<Button>().interactable = gameManager.Points >= RakePrice;
+        buttons[2].GetComponent<Button>().interactable = gameManager.Points >= WallPrice;
     }
 
     private void DestroyPreviewObject()
