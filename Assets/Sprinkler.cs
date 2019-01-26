@@ -1,6 +1,7 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class Sprinkler : MonoBehaviour
 {
     [SerializeField]
@@ -17,11 +18,11 @@ public class Sprinkler : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Trigger();
+        TryTrigger();
     }
 
     [Button("Debug Trigger")]
-    void Trigger()
+    void TryTrigger()
     {
         if(_remainingCooldownSeconds > 0f)
         {
