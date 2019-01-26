@@ -1391,6 +1391,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EvilCorp
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: df9e3322917bf63499ed7cf9d049e52e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: df9e3322917bf63499ed7cf9d049e52e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: df9e3322917bf63499ed7cf9d049e52e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
@@ -1455,6 +1463,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 714546589}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &714546591 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: df9e3322917bf63499ed7cf9d049e52e,
+    type: 3}
+  m_PrefabInstance: {fileID: 714546589}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &714546592
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714546591}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.858493, y: 5.040099, z: 2.8680968}
+  m_Center: {x: 0.00000011920929, y: -0.00000011920929, z: -0.00000035762787}
 --- !u!1 &740996321
 GameObject:
   m_ObjectHideFlags: 0
@@ -2116,7 +2143,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1157020494}
   m_Enabled: 1
-  m_CastShadows: 0
+  m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -2697,7 +2724,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: feb4ab99c2b76f44f937bc8036528b2f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: -0.72
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: feb4ab99c2b76f44f937bc8036528b2f, type: 3}
       propertyPath: m_LocalRotation.x
