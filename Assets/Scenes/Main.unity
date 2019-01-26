@@ -264,6 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levels:
   - Level1
+  - Level2
 --- !u!1 &1157020494
 GameObject:
   m_ObjectHideFlags: 0

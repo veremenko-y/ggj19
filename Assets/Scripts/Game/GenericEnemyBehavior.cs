@@ -1,11 +1,10 @@
-﻿using System.Linq;
+﻿using Sirenix.OdinInspector;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GenericEnemyBehavior : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     public int MaxHealth = 3;
     public float HitCollDownTime = 1;
     public float FlashInterval = .05f;
@@ -25,13 +24,12 @@ public class GenericEnemyBehavior : MonoBehaviour
         healthBar = GetComponentsInChildren(typeof(Image)).Cast<Image>().OrderBy(i => i.name).ToArray();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        for (var i = 0; i < healthBar.Length; i++)
+        for(var i = 0; i < healthBar.Length; i++)
         {
             var c = healthBar[i].color;
-            if (currentHealth < (i + 1))
+            if(currentHealth < (i + 1))
             {
                 c.a = 0;
             }
@@ -42,11 +40,11 @@ public class GenericEnemyBehavior : MonoBehaviour
             healthBar[i].color = c;
         }
 
-        if (hitCoolDown > 0)
+        if(hitCoolDown > 0)
         {
             hitCoolDown -= Time.deltaTime;
             flashCurrentTime += Time.deltaTime;
-            if (flashCurrentTime > FlashInterval)
+            if(flashCurrentTime > FlashInterval)
             {
                 flashCurrentTime = 0;
                 renderer.enabled = !renderer.enabled;
@@ -60,17 +58,23 @@ public class GenericEnemyBehavior : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (hitCoolDown <= 0 &&
+        if(hitCoolDown <= 0 &&
             other.gameObject.tag == "Trap")
         {
-            currentHealth--;
-            Debug.Log($"{gameObject.name} health {currentHealth}");
-            if (currentHealth <= 0)
-            {
-                Debug.Log($"{gameObject.name} dead");
-                Destroy(gameObject);
-            }
+            HurtEnemy();
             hitCoolDown = HitCollDownTime;
+        }
+    }
+
+    [Button("Debug Hurt")]
+    void HurtEnemy()
+    {
+        currentHealth--;
+        Debug.Log($"{gameObject.name} health {currentHealth}");
+        if(currentHealth <= 0)
+        {
+            Debug.Log($"{gameObject.name} dead");
+            Destroy(gameObject);
         }
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Animator))]
-public class CityInspector : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     Animator _animator = null;
     NavMeshAgent _agent = null;

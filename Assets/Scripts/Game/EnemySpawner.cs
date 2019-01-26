@@ -22,6 +22,8 @@ public class EnemySpawner : MonoBehaviour
 
     Home _home = null;
 
+    public bool HasSpawnsRemaining() { return _numberSpawned < _numberToSpawn; }
+
     void Awake()
     {
         _home = FindObjectOfType<Home>();
@@ -44,7 +46,7 @@ public class EnemySpawner : MonoBehaviour
         }
 
         _numberSpawned++;
-        if(_numberSpawned >= _numberToSpawn)
+        if(!HasSpawnsRemaining())
         {
             CancelInvoke("Spawn");
         }
