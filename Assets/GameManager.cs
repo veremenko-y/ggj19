@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -16,7 +17,7 @@ public class GameManager : MonoBehaviour
     {
         _activeLevel = FindObjectOfType<Level>();
 
-        _failureScreen = FindObjectOfType<FailureScreen>();
+        _failureScreen = Resources.FindObjectsOfTypeAll<FailureScreen>().First();
         _failureScreen.gameObject.SetActive(false);
     }
 

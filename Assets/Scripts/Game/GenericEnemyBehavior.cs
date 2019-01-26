@@ -56,7 +56,7 @@ public class GenericEnemyBehavior : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         if(hitCoolDown <= 0 &&
             other.gameObject.tag == "Trap")
