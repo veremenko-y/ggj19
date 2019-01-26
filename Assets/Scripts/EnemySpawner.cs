@@ -33,4 +33,9 @@ public class EnemySpawner : MonoBehaviour
             Debug.LogError("Couldn't find nav mesh position!");
         }
     }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, 0.1f);
+    }
 }
