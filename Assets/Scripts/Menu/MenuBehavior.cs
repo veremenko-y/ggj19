@@ -36,10 +36,8 @@ public class MenuBehavior : MonoBehaviour
     void CreditsOnClick()
     {
         creditsRunning = true;
-        NewGame.enabled = false;
-        Credits.enabled = false;
-        Exit.enabled = false;
         Credits.enabled = true;
+        SetMenuEnable(false);
     }
 
     void ExitOnClick()
@@ -60,10 +58,21 @@ public class MenuBehavior : MonoBehaviour
                 p.y = originalYForCredits;
                 CreditsText.rectTransform.position = p;
                 creditsRunning = false;
-                NewGame.enabled = true;
-                Credits.enabled = true;
-                Exit.enabled = true;
+                SetMenuEnable(true);
             }
         }
+    }
+
+    void SetMenuEnable(bool enable)
+    {
+        NewGame.enabled = enable;
+        NewGame.GetComponent<Image>().enabled = enable;
+        NewGame.GetComponentInChildren<Text>().enabled = enable;
+        Credits.enabled = false;
+        Credits.GetComponent<Image>().enabled = enable;
+        Credits.GetComponentInChildren<Text>().enabled = enable;
+        Exit.enabled = false;
+        Exit.GetComponent<Image>().enabled = enable;
+        Exit.GetComponentInChildren<Text>().enabled = enable;
     }
 }
