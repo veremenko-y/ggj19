@@ -220,6 +220,11 @@ PrefabInstance:
       propertyPath: Started
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3953658564842067523, guid: 908ca1d807a368f409fe0cec663c7c77,
+        type: 3}
+      propertyPath: _sceneName
+      value: Menu
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 908ca1d807a368f409fe0cec663c7c77, type: 3}
 --- !u!1 &276351136 stripped
@@ -408,5 +413,10 @@ PrefabInstance:
       propertyPath: NextLogo
       value: 
       objectReference: {fileID: 276351136}
+    - target: {fileID: 3953658564842067523, guid: 908ca1d807a368f409fe0cec663c7c77,
+        type: 3}
+      propertyPath: _sceneName
+      value: Menu
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 908ca1d807a368f409fe0cec663c7c77, type: 3}

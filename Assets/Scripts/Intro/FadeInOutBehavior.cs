@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class FadeInOutBehavior : MonoBehaviour
 {
     [SerializeField]
-    string _sceneName = "Main";
+    string _sceneName = "Menu";
 
     public float FadeTime = 2;
     public bool Started = false;
