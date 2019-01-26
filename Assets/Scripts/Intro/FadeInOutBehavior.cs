@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class FadeInOutBehavior : MonoBehaviour
 {
+    [SerializeField]
+    string _sceneName = "Main";
+
     public float FadeTime = 2;
     public bool Started = false;
     public GameObject NextLogo = null;
@@ -18,7 +21,7 @@ public class FadeInOutBehavior : MonoBehaviour
     {
         renderer = GetComponent<SpriteRenderer>();
         SetAlpha(0);
-        if (NextLogo != null)
+        if(NextLogo != null)
         {
             nextScript = NextLogo.GetComponent<FadeInOutBehavior>();
         }
@@ -27,12 +30,12 @@ public class FadeInOutBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!Started) return;
+        if(!Started) return;
         fadeTotalTime += Time.deltaTime;
-        switch (state)
+        switch(state)
         {
             case State.FadeIn:
-                if (fadeTotalTime >= FadeTime)
+                if(fadeTotalTime >= FadeTime)
                 {
                     state = State.FadeOut;
                     break;
@@ -40,21 +43,20 @@ public class FadeInOutBehavior : MonoBehaviour
                 SetAlpha(fadeTotalTime / FadeTime);
                 break;
             case State.FadeOut:
-                if (fadeTotalTime >= FadeTime * 2)
+                if(fadeTotalTime >= FadeTime * 2)
                 {
                     state = State.Finish;
                 }
                 SetAlpha((FadeTime - (fadeTotalTime - FadeTime)) / FadeTime);
                 break;
             case State.Finish:
-                if (nextScript != null)
+                if(nextScript != null)
                 {
                     nextScript.Started = true;
                 }
                 else
                 {
-                    // TODO Add scene name
-                    SceneManager.LoadScene("Menu");
+                    SceneManager.LoadScene(_sceneName);
                 }
                 break;
         }
