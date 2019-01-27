@@ -401,7 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe43346952099f04082a740f77c1454e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 4
+  MaxHealth: 5
   HitCollDownTime: 1
   FlashInterval: 0.05
   HitSound: {fileID: 8300000, guid: 1a1ac5a5955c8bb4f8c7da1a82ab786a, type: 3}

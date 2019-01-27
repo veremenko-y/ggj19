@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
 
     public int Points = 100;
-    public int BasePoints = 25;
+    public int BasePoints = 15;
 
 
     void Awake()
