@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class Sprinkler : MonoBehaviour
+public class Trap : MonoBehaviour
 {
     public AudioClip PlaceSound;
     public AudioClip TriggerSound;

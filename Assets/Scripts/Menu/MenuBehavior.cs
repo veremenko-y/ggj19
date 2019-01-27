@@ -8,6 +8,7 @@ public class MenuBehavior : MonoBehaviour
     public string NewGameSceneName;
     public Button Credits;
     public Button Exit;
+    public Text Title;
 
     public Text CreditsText;
     public int CreditsSpeed = 10;
@@ -67,6 +68,7 @@ public class MenuBehavior : MonoBehaviour
 
     void SetMenuEnable(bool enable)
     {
+        Title.enabled = enable;
         NewGame.enabled = enable;
         NewGame.GetComponent<Image>().enabled = enable;
         NewGame.GetComponentInChildren<Text>().enabled = enable;
