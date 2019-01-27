@@ -18,6 +18,8 @@ public class UpgradeSystem : MonoBehaviour
 
     void Update()
     {
+        // Scales funny, cut due to timelimit
+        return;
         if(Input.GetMouseButtonDown(0))
         {
             RaycastHit hitInfo = new RaycastHit();
