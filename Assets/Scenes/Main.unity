@@ -2444,6 +2444,8 @@ MonoBehaviour:
   _levels:
   - Level1
   - Level2
+  - Level3
+  - Level4
   _failureScreen: {fileID: 1209796712}
   _winScreen: {fileID: 1516219500}
   Points: 0
