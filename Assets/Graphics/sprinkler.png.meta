@@ -3,6 +3,7 @@ guid: ea171141b14c9f24cbd1f1e53b165616
 TextureImporter:
   fileIDToRecycleName:
     21300000: sprinkler_0
+    21300002: Sprinkler_0
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -85,21 +86,21 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sprinkler_0
+      name: Sprinkler_0
       rect:
         serializedVersion: 2
-        x: 21
-        y: 16
-        width: 26
-        height: 30
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 15
+        y: 22
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c57f013b78cb96b4c9ea5be942cfbe35
+      spriteID: 1bb0561f49036d14083517c1efb379ef
       vertices: []
       indices: 
       edges: []
