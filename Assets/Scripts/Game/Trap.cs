@@ -61,6 +61,7 @@ public class Trap : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+
             _animator.SetTrigger("Activate");
         }
     }
