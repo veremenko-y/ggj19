@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: We Don't Sell Out
   productName: Get Off My Lawn!
-  defaultCursor: {fileID: 2800000, guid: b2717bbbf2182a84d94558a5b6a3ebbd, type: 3}
+  defaultCursor: {fileID: 2800000, guid: 3a8d9636d35bab0428f9557420189eb3, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
@@ -256,7 +256,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 818fcd1576f896d4aa10a21aeb1a983c, type: 3}
+      m_Icon: {fileID: 2800000, guid: d10d75aa0e86fd1478f5497e20605683, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
