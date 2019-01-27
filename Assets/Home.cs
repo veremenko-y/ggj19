@@ -21,6 +21,9 @@ public class Home : MonoBehaviour
     [ShowInInspector, ReadOnly]
     int _currentHealth = -1;
 
+    [ShowInInspector]
+    bool _jesusMode = false;
+
     Image[] _healthBar = null;
 
     void Awake()
@@ -34,7 +37,7 @@ public class Home : MonoBehaviour
     {
         for(var i = 0; i < _healthBar.Length; i++)
         {
-            _healthBar[i].enabled = (_currentHealth >= (i + 1));
+            _healthBar[i].enabled = (_currentHealth >= i);
         }
     }
 
@@ -45,7 +48,7 @@ public class Home : MonoBehaviour
 
     public void DamageHome(int damage = 1)
     {
-        _currentHealth = Math.Max(0, _currentHealth - damage);
+        _currentHealth = Math.Max(_jesusMode ? 1 : 0, _currentHealth - damage);
     }
 
     public bool HasRemainingHealth() { return _currentHealth > 0; }

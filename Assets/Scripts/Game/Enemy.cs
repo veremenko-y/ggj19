@@ -3,28 +3,50 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class Enemy : MonoBehaviour
 {
     [SerializeField, MinValue(1)]
     int _homeDamage = 1;
+    [SerializeField]
+    Sprite _horizontal = null;
+    [SerializeField]
+    Sprite _front = null;
+    [SerializeField]
+    Sprite _back = null;
 
-    Animator _animator = null;
     NavMeshAgent _agent = null;
+    SpriteRenderer _spriteRenderer = null;
 
     public int GetHomeDamage() { return _homeDamage; }
 
     void Awake()
     {
-        _animator = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    void Update()
+    void LateUpdate()
     {
-        // pass in desired direction to animator so we can determine what the sprite looks like
-        _animator.SetFloat("x", _agent.desiredVelocity.x);
-        // map z to y since depth looks like moving up or down
-        _animator.SetFloat("y", _agent.desiredVelocity.z);
+        bool showHorizontal = Mathf.Abs(_agent.desiredVelocity.x) > Mathf.Abs(_agent.desiredVelocity.z);
+        if(showHorizontal)
+        {
+            _spriteRenderer.sprite = _horizontal;
+            if(_agent.desiredVelocity.x < 0)
+            {
+                _spriteRenderer.flipX = true;
+            }
+        }
+        else
+        {
+            if(_agent.desiredVelocity.z > 0)
+            {
+                _spriteRenderer.sprite = _front;
+            }
+            else
+            {
+                _spriteRenderer.sprite = _back;
+            }
+        }
     }
 }
