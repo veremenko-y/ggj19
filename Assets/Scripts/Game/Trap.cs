@@ -8,13 +8,13 @@ public class Trap : MonoBehaviour
     public int Damage = 1;
 
     [SerializeField]
-    readonly AudioClip _placeSound;
+    AudioClip _placeSound;
     [SerializeField]
-    readonly AudioClip _triggerSound;
+    AudioClip _triggerSound;
     [SerializeField]
     int _trapHealth = 5;
     [SerializeField]
-    readonly float _triggerCooldownSeconds = 5f;
+    float _triggerCooldownSeconds = 5f;
     [ShowInInspector, ReadOnly]
     float _remainingCooldownSeconds = 0f;
 
