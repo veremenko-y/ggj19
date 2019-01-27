@@ -404,8 +404,8 @@ MonoBehaviour:
   MaxHealth: 4
   HitCollDownTime: 1
   FlashInterval: 0.05
-  HitSound: {fileID: 8300000, guid: a295d02fa34798d4ba74332d82dda5d3, type: 3}
-  DeathSound: {fileID: 8300000, guid: f7d226112792c804080476ca85b0eb46, type: 3}
+  HitSound: {fileID: 8300000, guid: 1a1ac5a5955c8bb4f8c7da1a82ab786a, type: 3}
+  DeathSound: {fileID: 8300000, guid: 4011e4866bae3504a93eb24d5ff12fe9, type: 3}
 --- !u!54 &1593412318945985447
 Rigidbody:
   m_ObjectHideFlags: 0
