@@ -9,37 +9,43 @@ public class Wall : MonoBehaviour
     [SerializeField]
     readonly float _wallCooldownSeconds = 3f;
 
+    [SerializeField]
+    Sprite _wall1 = null;
+    [SerializeField]
+    Sprite _wall2 = null;
+
     List<IdTime> stayByEnemies = new List<IdTime>(10);
-    SpriteRenderer renderer;
+    SpriteRenderer renderer = null;
     bool blinkStarted = false;
 
     void Awake()
     {
         renderer = GetComponent<SpriteRenderer>();
+        renderer.sprite = UnityEngine.Random.Range(0, 2) > 0 ? _wall1 : _wall2;
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag != "Enemy") return;
+        if(other.gameObject.tag != "Enemy") return;
         var id = other.gameObject.GetInstanceID();
-        if (!stayByEnemies.Any(i => i.Id == id))
+        if(!stayByEnemies.Any(i => i.Id == id))
             stayByEnemies.Add(new IdTime(id, 0));
     }
 
     void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag != "Enemy") return;
+        if(other.gameObject.tag != "Enemy") return;
         var id = other.gameObject.GetInstanceID();
         var found = stayByEnemies.FirstOrDefault(i => i.Id == id);
-        if (found != null)
+        if(found != null)
         {
             found.Time += Time.deltaTime;
-            if (found.Time > _wallCooldownSeconds)
+            if(found.Time > _wallCooldownSeconds)
             {
                 Destroy(gameObject);
             }
         }
-        if (stayByEnemies.Max(i => i.Time) > _wallCooldownSeconds / 2)
+        if(stayByEnemies.Max(i => i.Time) > _wallCooldownSeconds / 2)
         {
             StartCoroutine(Blink(3, .1f));
         }
@@ -47,19 +53,19 @@ public class Wall : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag != "Enemy") return;
+        if(other.gameObject.tag != "Enemy") return;
         var id = other.gameObject.GetInstanceID();
         var found = stayByEnemies.FirstOrDefault(i => i.Id == id);
-        if (found != null)
+        if(found != null)
             stayByEnemies.Remove(found);
     }
 
     IEnumerator Blink(float seconds, float period)
     {
-        if (blinkStarted) yield break;
+        if(blinkStarted) yield break;
         blinkStarted = true;
-        var times = (int)Math.Ceiling(seconds / period);
-        while (times-- > 0)
+        var times = (int) Math.Ceiling(seconds / period);
+        while(times-- > 0)
         {
             renderer.enabled = !renderer.enabled;
             yield return new WaitForSeconds(period);
