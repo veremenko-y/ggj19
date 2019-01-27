@@ -66,20 +66,21 @@ public class TrapPlacerBehavior : MonoBehaviour
 
     void OnButtonClick(string type)
     {
+        DestroyPreviewObject();
         SelectedTrap = type;
-        if (SelectedTrap == "Sprinkler")
+        if (SelectedTrap == "Sprinkler" && gameManager.Points >= SprinklerPrice)
         {
             objectToPlace = Instantiate(SprinklerPrefabPreview);
             objectToAdd = SprinklerPrefab;
             priceToPay = SprinklerPrice;
         }
-        else if (SelectedTrap == "Rake")
+        else if (SelectedTrap == "Rake" && gameManager.Points >= RakePrice)
         {
             objectToPlace = Instantiate(RakePrefabPreview);
             objectToAdd = RakePrefab;
             priceToPay = RakePrice;
         }
-        else if (SelectedTrap == "Wall")
+        else if (SelectedTrap == "Wall" && gameManager.Points >= WallPrice)
         {
             objectToPlace = Instantiate(WallPrefabPreview);
             objectToAdd = WallPrefab;
@@ -118,6 +119,13 @@ public class TrapPlacerBehavior : MonoBehaviour
         buttons[0].GetComponent<Button>().interactable = gameManager.Points >= SprinklerPrice;
         buttons[1].GetComponent<Button>().interactable = gameManager.Points >= RakePrice;
         buttons[2].GetComponent<Button>().interactable = gameManager.Points >= WallPrice;
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            OnButtonClick("Sprinkler");
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            OnButtonClick("Rake");
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+            OnButtonClick("Wall");
     }
 
     private void DestroyPreviewObject()

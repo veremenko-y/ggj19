@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
         {
             if (_activeLevel != null && _activeLevel.GetState() == LevelState.Running)
             {
-                Points += BasePoints * _nextLevelIndex;
+                Points += BasePoints;
             }
             yield return new WaitForSeconds(1);
         }
