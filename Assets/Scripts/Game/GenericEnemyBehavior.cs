@@ -70,8 +70,7 @@ public class GenericEnemyBehavior : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if(hitCoolDown <= 0 &&
-            other.gameObject.tag == "Trap")
+        if(other.gameObject.tag == "Trap")
         {
             HurtEnemy(other.GetComponent<Trap>().Damage);
             hitCoolDown = HitCollDownTime;

@@ -53,11 +53,11 @@ public class Trap : MonoBehaviour
             _collider.enabled = false;
             _trapHealth--;
             SetColor(1, .5f, 0);
-            if(_trapHealth <= 1)
+            if (_trapHealth <= 1)
             {
                 StartCoroutine(Blink());
             }
-            if(_trapHealth == 0)
+            if (_trapHealth == 0)
             {
                 Destroy(gameObject);
             }
