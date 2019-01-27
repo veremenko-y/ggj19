@@ -7,19 +7,24 @@ public class MenuBehavior : MonoBehaviour
     public Button NewGame;
     public string NewGameSceneName;
     public Button Credits;
+    public Button Help;
     public Button Exit;
     public Image Title;
+
+    public Image HelpImage;
 
     public Text CreditsText;
     public int CreditsSpeed = 10;
 
     private bool creditsRunning = false;
+    private bool helpRunning = false;
     private float originalYForCredits;
 
     void Start()
     {
         NewGame.onClick.AddListener(NewGameOnClick);
         Credits.onClick.AddListener(CreditsOnClick);
+        Help.onClick.AddListener(HelpOnClick);
         Exit.onClick.AddListener(ExitOnClick);
 
         originalYForCredits = CreditsText.rectTransform.position.y;
@@ -48,9 +53,25 @@ public class MenuBehavior : MonoBehaviour
         Application.Quit();
     }
 
+    void HelpOnClick()
+    {
+        helpRunning = true;
+        SetMenuEnable(false);
+        HelpImage.gameObject.SetActive(true);
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if(helpRunning)
+        {
+            if(Input.anyKey)
+            {
+                helpRunning = false;
+                SetMenuEnable(true);
+                HelpImage.gameObject.SetActive(false);
+            }
+        }
         if(creditsRunning)
         {
             var p = CreditsText.rectTransform.position;
@@ -72,12 +93,15 @@ public class MenuBehavior : MonoBehaviour
         NewGame.enabled = enable;
         NewGame.GetComponent<Image>().enabled = enable;
         NewGame.GetComponentInChildren<Text>().enabled = enable;
-        Credits.enabled = false;
+        Credits.enabled = enable;
         Credits.GetComponent<Image>().enabled = enable;
         Credits.GetComponentInChildren<Text>().enabled = enable;
-        Exit.enabled = false;
+        Exit.enabled = enable;
         Exit.GetComponent<Image>().enabled = enable;
         Exit.GetComponentInChildren<Text>().enabled = enable;
+        Help.enabled = enable;
+        Help.GetComponent<Image>().enabled = enable;
+        Help.GetComponentInChildren<Text>().enabled = enable;
         Title.enabled = enable;
     }
 }
