@@ -13,6 +13,8 @@ public class Trap : MonoBehaviour
     AudioClip _triggerSound;
     [SerializeField]
     int _trapHealth = 5;
+    [SerializeField, MinValue(0f)]
+    float _destroyAfterSeconds = 1f;
     [SerializeField]
     float _triggerCooldownSeconds = 5f;
     [ShowInInspector, ReadOnly]
@@ -45,7 +47,7 @@ public class Trap : MonoBehaviour
     [Button("Debug Trigger")]
     void TryTrigger()
     {
-        if (_remainingCooldownSeconds <= 0f)
+        if(_remainingCooldownSeconds <= 0f)
         {
             _animator.SetTrigger("Activate");
 
@@ -54,21 +56,27 @@ public class Trap : MonoBehaviour
             _remainingCooldownSeconds = _triggerCooldownSeconds;
             _collider.enabled = false;
             _trapHealth--;
-            SetColor(1, .5f, 0);
-            if (_trapHealth <= 1)
+            if(_trapHealth <= 1)
             {
+                SetColor(1, .5f, 0);
                 StartCoroutine(Blink());
             }
-            if (_trapHealth == 0)
+            else if(_trapHealth == 0)
             {
-                Destroy(gameObject);
+                StartCoroutine(WaitAndDestroy(_destroyAfterSeconds));
             }
         }
     }
 
+    IEnumerator WaitAndDestroy(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        Destroy(gameObject);
+    }
+
     void Update()
     {
-        if (_remainingCooldownSeconds > 0f)
+        if(_remainingCooldownSeconds > 0f)
         {
             _remainingCooldownSeconds -= Time.deltaTime;
         }
@@ -81,7 +89,7 @@ public class Trap : MonoBehaviour
 
     IEnumerator Blink()
     {
-        while (true)
+        while(true)
         {
             var isClear = _spriteRenderer.color.a == 0;
             SetAlpha(isClear ? 1 : 0);
