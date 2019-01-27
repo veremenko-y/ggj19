@@ -43,7 +43,7 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 0.008
-    meshCompression: 2
+    meshCompression: 1
     addColliders: 0
     useSRGBMaterialColor: 1
     importVisibility: 0
@@ -51,7 +51,7 @@ ModelImporter:
     importCameras: 0
     importLights: 0
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
@@ -60,14 +60,14 @@ ModelImporter:
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15
-    secondaryUVHardAngle: 162
+    secondaryUVHardAngle: 48
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
     hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
