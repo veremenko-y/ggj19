@@ -40,7 +40,7 @@ public class Trap : MonoBehaviour
             _audioSource.clip = TriggerSound;
             _audioSource.Play();
             _remainingCooldownSeconds = _triggerCooldownSeconds;
-            _animator?.SetTrigger("Activate");
+            _animator.SetTrigger("Activate");
         }
     }
 
