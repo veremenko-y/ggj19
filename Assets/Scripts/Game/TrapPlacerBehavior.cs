@@ -97,6 +97,7 @@ public class TrapPlacerBehavior : MonoBehaviour
             {
                 var hitPosition = hit.point;
                 objectToPlace.transform.position = new Vector3(hitPosition.x, 0, hitPosition.z);
+                SetAllowedColor(hit.transform.name == "Ground");
                 if (Input.GetMouseButton(0) &&
                     hit.transform.name == "Ground")
                 {
@@ -125,5 +126,15 @@ public class TrapPlacerBehavior : MonoBehaviour
         if(objectToPlace != null)
             Destroy(objectToPlace.gameObject);
         objectToPlace = null;
+    }
+
+    private void SetAllowedColor(bool allowed)
+    {
+        if(objectToPlace != null)
+        {
+            var renderer = objectToPlace.GetComponent<SpriteRenderer>();
+            Color c = allowed ? new Color(1, 1, 1, 1) : new Color(1, 0, 0, .5f);
+            renderer.color = c;
+        }
     }
 }
