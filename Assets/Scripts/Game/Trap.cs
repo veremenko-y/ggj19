@@ -56,9 +56,9 @@ public class Trap : MonoBehaviour
             _remainingCooldownSeconds = _triggerCooldownSeconds;
             _collider.enabled = false;
             _trapHealth--;
+            SetColor(1, .5f, 0);
             if(_trapHealth <= 1)
             {
-                SetColor(1, .5f, 0);
                 StartCoroutine(Blink());
             }
             else if(_trapHealth == 0)
