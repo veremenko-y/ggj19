@@ -17,8 +17,8 @@ public class GameManager : MonoBehaviour
     TrapPlacerBehavior _trapPlacer = null;
 
 
-    public int Points = 0;
-    public int BasePoints = 50;
+    public int Points = 100;
+    public int BasePoints = 25;
 
 
     void Awake()

@@ -2434,8 +2434,8 @@ MonoBehaviour:
   - Level6
   _failureScreen: {fileID: 1209796712}
   _winScreen: {fileID: 1516219500}
-  Points: 0
-  BasePoints: 50
+  Points: 100
+  BasePoints: 25
 --- !u!1 &1157020494
 GameObject:
   m_ObjectHideFlags: 0
