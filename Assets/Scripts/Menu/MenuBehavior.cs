@@ -8,6 +8,7 @@ public class MenuBehavior : MonoBehaviour
     public string NewGameSceneName;
     public Button Credits;
     public Button Exit;
+    public Text Title;
 
     public Text CreditsText;
     public int CreditsSpeed = 10;
@@ -76,5 +77,6 @@ public class MenuBehavior : MonoBehaviour
         Exit.enabled = false;
         Exit.GetComponent<Image>().enabled = enable;
         Exit.GetComponentInChildren<Text>().enabled = enable;
+        Title.enabled = enable;
     }
 }

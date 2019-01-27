@@ -9,6 +9,10 @@ public class GenericEnemyBehavior : MonoBehaviour
     public float HitCollDownTime = 1;
     public float FlashInterval = .05f;
 
+    public AudioClip HitSound;
+    public AudioClip DeathSound;
+
+
     private int currentHealth;
     private float hitCoolDown;
 
@@ -73,13 +77,29 @@ public class GenericEnemyBehavior : MonoBehaviour
     void HurtEnemy()
     {
         currentHealth--;
-        audioSource.pitch = Random.Range(.5f, 1.5f);
-        audioSource.Play();
+
         Debug.Log($"{gameObject.name} health {currentHealth}");
-        if(currentHealth <= 0)
+
+        if (currentHealth == 1)
+        {
+            audioSource.pitch = Random.Range(.5f, 1.5f);
+            audioSource.clip = DeathSound;
+            audioSource.Play();
+        }
+        else
+        {
+            audioSource.pitch = Random.Range(.5f, 1.5f);
+            audioSource.clip = HitSound;
+            audioSource.Play();
+        }
+
+        if (currentHealth <= 0)
         {
             Debug.Log($"{gameObject.name} dead");
+
             Destroy(gameObject);
+            return;
         }
+
     }
 }

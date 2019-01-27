@@ -981,6 +981,7 @@ MonoBehaviour:
   NewGameSceneName: Main
   Credits: {fileID: 605902934}
   Exit: {fileID: 1601449815}
+  Title: {fileID: 1827002151}
   CreditsText: {fileID: 488293302}
   CreditsSpeed: 2
 --- !u!4 &1069193499
