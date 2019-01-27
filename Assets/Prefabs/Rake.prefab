@@ -123,9 +123,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 3
-  _placeSound: {fileID: 8300000, guid: 0bb47b39425d7ec4880e2cd81bb828e6, type: 3}
-  _triggerSound: {fileID: 8300000, guid: 47ab7a6ea50660742be368757ca46c58, type: 3}
+  _placeSound: {fileID: 8300000, guid: 59c4da84446947c41aeaec97a0c9f1f7, type: 3}
+  _triggerSound: {fileID: 8300000, guid: 79d59ca662b7c9846958afeb8011fca3, type: 3}
   _trapHealth: 2
+  _destroyAfterSeconds: 1
   _triggerCooldownSeconds: 5
 --- !u!82 &6260194778695322357
 AudioSource:

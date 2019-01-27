@@ -140,6 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5664d768a845f94890063e21c598ba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _menu: {fileID: 8300000, guid: 84d9816e1360d6a4592aa648e4fe9aa5, type: 3}
-  _softGame: {fileID: 8300000, guid: 84d9816e1360d6a4592aa648e4fe9aa5, type: 3}
-  _hardGame: {fileID: 8300000, guid: 8aa75a2c8f13b6048aebec183e5178ad, type: 3}
+  _menu: {fileID: 8300000, guid: e6b3b5bda25d21f45ba74cc5e8b0abfa, type: 3}
+  _softGame: {fileID: 8300000, guid: e6b3b5bda25d21f45ba74cc5e8b0abfa, type: 3}
+  _hardGame: {fileID: 8300000, guid: 204c38ce45a825745a0e6995118b29cc, type: 3}
