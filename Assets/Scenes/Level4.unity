@@ -278,6 +278,14 @@ PrefabInstance:
       propertyPath: m_Text
       value: 'Wave 4: BEARicade the doors'
       objectReference: {fileID: 0}
+    - target: {fileID: 802257702, guid: dc9ef92799c5b504f9099bfbefc41ca1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 802257703, guid: dc9ef92799c5b504f9099bfbefc41ca1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 600
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc9ef92799c5b504f9099bfbefc41ca1, type: 3}
 --- !u!1001 &1789804598

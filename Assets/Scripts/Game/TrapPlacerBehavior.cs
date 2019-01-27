@@ -66,6 +66,7 @@ public class TrapPlacerBehavior : MonoBehaviour
 
     void OnButtonClick(string type)
     {
+        DestroyPreviewObject();
         SelectedTrap = type;
         if (SelectedTrap == "Sprinkler" && gameManager.Points >= SprinklerPrice)
         {

@@ -7,31 +7,15 @@ public class UpgradeSystem : MonoBehaviour
     public GameObject trap;
 
     public int level = 1;
-    public int money = 350;
-    public int cost;
+    public int cost = 100;
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        if (level == 1)
-        {
-            cost = 100;
-        }
-        if (level == 2)
-        {
-            cost = 200;
-        }
-        if (level == 3)
-        {
-            cost = 400;
-        }
-
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hitInfo = new RaycastHit();
@@ -43,10 +27,12 @@ public class UpgradeSystem : MonoBehaviour
                 {
                     if (level < 4)
                     {
-                        if (money >= cost)
+                        if (GameObject.Find("GameManager").GetComponent<GameManager>().Points >= cost)
                         {
+                            gameObject.transform.localScale += new Vector3(0.5F, 0, 0);
+                            GameObject.Find("GameManager").GetComponent<GameManager>().Points -= cost;
                             level++;
-                            money -= cost;
+                            cost += 100;
                         }
                     }
                 }
