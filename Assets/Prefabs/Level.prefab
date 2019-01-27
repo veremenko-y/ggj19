@@ -222,6 +222,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afaa112be17225d4dbf374cc60c6df0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _waitBeforeStartSeconds: 2
+  _waitBeforeStartSeconds: 5
   _waitAfterEndSeconds: 2
   _titleText: {fileID: 802257704}
