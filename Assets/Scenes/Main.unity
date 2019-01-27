@@ -775,7 +775,7 @@ MonoBehaviour:
     type: 3}
   SprinklerPrefabPreview: {fileID: 643106756701594857, guid: a107522dd0db4f645b3c017735e66325,
     type: 3}
-  SprinklerPrice: 200
+  SprinklerPrice: 100
   HasRake: 0
   RakeMenuSprite: {fileID: 21300000, guid: 7e3958e46e7624f4dae527b2a17230a8, type: 3}
   RakePrefab: {fileID: 2279543091871078854, guid: a710772a9db91e44fb65264e1b0d6e84,
