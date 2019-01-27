@@ -23,11 +23,13 @@ public class Trap : MonoBehaviour
     Animator _animator = null;
     AudioSource _audioSource = null;
     SpriteRenderer _spriteRenderer = null;
+    Collider _collider = null;
 
     void Awake()
     {
         _animator = GetComponent<Animator>();
         _audioSource = GetComponent<AudioSource>();
+        _collider = GetComponent<Collider>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -52,6 +54,7 @@ public class Trap : MonoBehaviour
             _audioSource.clip = _triggerSound;
             _audioSource.Play();
             _remainingCooldownSeconds = _triggerCooldownSeconds;
+            _collider.enabled = false;
             _trapHealth--;
             SetColor(1, .5f, 0);
             if(_trapHealth <= 1)
@@ -79,6 +82,7 @@ public class Trap : MonoBehaviour
         }
         else
         {
+            _collider.enabled = true;
             SetColor(1, 1, 1);
         }
     }
