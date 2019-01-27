@@ -268,7 +268,6 @@ GameObject:
   - component: {fileID: 8319336355768739572}
   - component: {fileID: 1593412318945985447}
   - component: {fileID: 1917105999665828677}
-  - component: {fileID: 7460184888079366786}
   - component: {fileID: 4493493001714985040}
   m_Layer: 0
   m_Name: CityInspector
@@ -436,25 +435,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.5, z: 0.1}
   m_Center: {x: 0, y: 0.29999998, z: 0}
---- !u!95 &7460184888079366786
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6888971051659087411}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 081576dd1a38f3241806d27b53c4f6ad, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!82 &4493493001714985040
 AudioSource:
   m_ObjectHideFlags: 0
