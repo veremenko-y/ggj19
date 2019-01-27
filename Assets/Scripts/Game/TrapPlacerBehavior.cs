@@ -122,7 +122,8 @@ public class TrapPlacerBehavior : MonoBehaviour
     private void DestroyPreviewObject()
     {
         SelectedTrap = null;
-        Destroy(objectToPlace.gameObject);
+        if(objectToPlace != null)
+            Destroy(objectToPlace.gameObject);
         objectToPlace = null;
     }
 }
