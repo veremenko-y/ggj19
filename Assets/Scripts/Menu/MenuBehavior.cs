@@ -78,5 +78,6 @@ public class MenuBehavior : MonoBehaviour
         Exit.enabled = false;
         Exit.GetComponent<Image>().enabled = enable;
         Exit.GetComponentInChildren<Text>().enabled = enable;
+        Title.enabled = enable;
     }
 }

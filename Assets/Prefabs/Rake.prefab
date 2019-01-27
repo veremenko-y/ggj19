@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3085709217385611458}
   - component: {fileID: 8895003603956961085}
   - component: {fileID: 6260194778695322357}
-  - component: {fileID: 9194151950003017941}
+  - component: {fileID: 2827570843836970964}
   m_Layer: 0
   m_Name: Rake
   m_TagString: Trap
@@ -220,7 +220,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!95 &9194151950003017941
+--- !u!95 &2827570843836970964
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
