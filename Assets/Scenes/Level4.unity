@@ -276,7 +276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 802257704, guid: dc9ef92799c5b504f9099bfbefc41ca1, type: 3}
       propertyPath: m_Text
-      value: Wave 4
+      value: 'Wave 4: Mad House Furry Lawn'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc9ef92799c5b504f9099bfbefc41ca1, type: 3}
