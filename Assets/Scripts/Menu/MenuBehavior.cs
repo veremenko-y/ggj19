@@ -8,7 +8,7 @@ public class MenuBehavior : MonoBehaviour
     public string NewGameSceneName;
     public Button Credits;
     public Button Exit;
-    public Text Title;
+    public Image Title;
 
     public Text CreditsText;
     public int CreditsSpeed = 10;
