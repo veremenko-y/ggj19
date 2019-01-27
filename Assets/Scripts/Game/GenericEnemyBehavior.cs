@@ -17,9 +17,12 @@ public class GenericEnemyBehavior : MonoBehaviour
 
     private SpriteRenderer renderer;
     private Image[] healthBar;
+    private AudioSource audioSource;
+
     void Start()
     {
         renderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
         currentHealth = MaxHealth;
         healthBar = GetComponentsInChildren(typeof(Image)).Cast<Image>().OrderBy(i => i.name).ToArray();
     }
@@ -70,6 +73,8 @@ public class GenericEnemyBehavior : MonoBehaviour
     void HurtEnemy()
     {
         currentHealth--;
+        audioSource.pitch = Random.Range(.5f, 1.5f);
+        audioSource.Play();
         Debug.Log($"{gameObject.name} health {currentHealth}");
         if(currentHealth <= 0)
         {
