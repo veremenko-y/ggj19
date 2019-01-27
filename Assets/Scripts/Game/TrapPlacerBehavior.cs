@@ -93,8 +93,7 @@ public class TrapPlacerBehavior : MonoBehaviour
         if (objectToPlace != null)
         {
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            var layerMaskId = LayerMask.NameToLayer("Environment");
-            if (Physics.Raycast(ray, out var hit, 100, layerMaskId))
+            if (Physics.Raycast(ray, out var hit, 100))
             {
                 var hitPosition = hit.point;
                 objectToPlace.transform.position = new Vector3(hitPosition.x, 0, hitPosition.z);

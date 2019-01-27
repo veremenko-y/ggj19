@@ -25,6 +25,9 @@ public class FadeInOutBehavior : MonoBehaviour
         {
             nextScript = NextLogo.GetComponent<FadeInOutBehavior>();
         }
+
+        MusicPlayer music = FindObjectOfType<MusicPlayer>();
+        music.PlayMenu();
     }
 
     // Update is called once per frame

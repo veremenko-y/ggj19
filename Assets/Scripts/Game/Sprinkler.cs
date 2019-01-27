@@ -4,6 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class Sprinkler : MonoBehaviour
 {
+    public AudioClip PlaceSound;
+    public AudioClip TriggerSound;
+
     [SerializeField]
     float _triggerCooldownSeconds = 5f;
     [ShowInInspector, ReadOnly]
@@ -18,6 +21,12 @@ public class Sprinkler : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
     }
 
+    private void Start()
+    {
+        _audioSource.clip = PlaceSound;
+        _audioSource.Play();
+    }
+
     void OnTriggerEnter(Collider other)
     {
         TryTrigger();
@@ -28,6 +37,7 @@ public class Sprinkler : MonoBehaviour
     {
         if(_remainingCooldownSeconds <= 0f)
         {
+            _audioSource.clip = TriggerSound;
             _audioSource.Play();
             _remainingCooldownSeconds = _triggerCooldownSeconds;
             _animator?.SetTrigger("Activate");
