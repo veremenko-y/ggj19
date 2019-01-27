@@ -33,10 +33,10 @@ public class GenericEnemyBehavior : MonoBehaviour
 
     void Update()
     {
-        for(var i = 0; i < healthBar.Length; i++)
+        for (var i = 0; i < healthBar.Length; i++)
         {
             var c = healthBar[i].color;
-            if(currentHealth < (i + 1))
+            if (currentHealth < (i + 1))
             {
                 c.a = 0;
             }
@@ -47,11 +47,11 @@ public class GenericEnemyBehavior : MonoBehaviour
             healthBar[i].color = c;
         }
 
-        if(hitCoolDown > 0)
+        if (hitCoolDown > 0)
         {
             hitCoolDown -= Time.deltaTime;
             flashCurrentTime += Time.deltaTime;
-            if(flashCurrentTime > FlashInterval)
+            if (flashCurrentTime > FlashInterval)
             {
                 flashCurrentTime = 0;
                 spriteRenderer.enabled = !spriteRenderer.enabled;
@@ -65,12 +65,7 @@ public class GenericEnemyBehavior : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        OnTriggerStay(other);
-    }
-
-    void OnTriggerStay(Collider other)
-    {
-        if(other.gameObject.tag == "Trap")
+        if (other.gameObject.tag == "Trap")
         {
             HurtEnemy(other.GetComponent<Trap>().Damage);
             hitCoolDown = HitCollDownTime;
@@ -84,17 +79,20 @@ public class GenericEnemyBehavior : MonoBehaviour
 
         Debug.Log($"{gameObject.name} health {currentHealth}");
 
-        if (currentHealth == 1)
+        if (!audioSource.isPlaying)
         {
-            audioSource.pitch = Random.Range(.5f, 1.5f);
-            audioSource.clip = DeathSound;
-            audioSource.Play();
-        }
-        else
-        {
-            audioSource.pitch = Random.Range(.5f, 1.5f);
-            audioSource.clip = HitSound;
-            audioSource.Play();
+            if (currentHealth == 1)
+            {
+                audioSource.pitch = Random.Range(.5f, 1.5f);
+                audioSource.clip = DeathSound;
+                audioSource.Play();
+            }
+            else
+            {
+                audioSource.pitch = Random.Range(.5f, 1.5f);
+                audioSource.clip = HitSound;
+                audioSource.Play();
+            }
         }
 
         if (currentHealth <= 0)
