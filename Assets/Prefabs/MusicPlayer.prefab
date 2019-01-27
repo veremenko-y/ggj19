@@ -142,5 +142,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _menu: {fileID: 8300000, guid: f05afd1479d4bb84aa2c9e1579d7332c, type: 3}
   _softGame: {fileID: 8300000, guid: f05afd1479d4bb84aa2c9e1579d7332c, type: 3}
-  _hardGame: {fileID: 8300000, guid: f05afd1479d4bb84aa2c9e1579d7332c, type: 3}
-  _menuSceneName: Menu
+  _hardGame: {fileID: 8300000, guid: c1b7712fae160304ea5c4e9132ab5a65, type: 3}

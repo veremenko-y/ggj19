@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class Sprinkler : MonoBehaviour
+public class Trap : MonoBehaviour
 {
     public AudioClip PlaceSound;
     public AudioClip TriggerSound;
@@ -40,7 +40,7 @@ public class Sprinkler : MonoBehaviour
             _audioSource.clip = TriggerSound;
             _audioSource.Play();
             _remainingCooldownSeconds = _triggerCooldownSeconds;
-            _animator?.SetTrigger("Activate");
+            _animator.SetTrigger("Activate");
         }
     }
 

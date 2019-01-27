@@ -68,6 +68,7 @@ public class MenuBehavior : MonoBehaviour
 
     void SetMenuEnable(bool enable)
     {
+        Title.enabled = enable;
         NewGame.enabled = enable;
         NewGame.GetComponent<Image>().enabled = enable;
         NewGame.GetComponentInChildren<Text>().enabled = enable;

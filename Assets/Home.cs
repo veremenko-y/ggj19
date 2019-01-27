@@ -1,6 +1,8 @@
 ﻿using Sirenix.OdinInspector;
 using System;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum EnemyDestination
 {
@@ -19,9 +21,21 @@ public class Home : MonoBehaviour
     [ShowInInspector, ReadOnly]
     int _currentHealth = -1;
 
+    Image[] _healthBar = null;
+
     void Awake()
     {
         RestoreToMaxHealth();
+
+        _healthBar = GetComponentsInChildren(typeof(Image)).Cast<Image>().OrderBy(i => i.name).ToArray();
+    }
+
+    void Update()
+    {
+        for(var i = 0; i < _healthBar.Length; i++)
+        {
+            _healthBar[i].enabled = (_currentHealth >= (i + 1));
+        }
     }
 
     public void RestoreToMaxHealth()
