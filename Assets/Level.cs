@@ -38,6 +38,12 @@ public class Level : MonoBehaviour
 
     void Awake()
     {
+        // Ensure single level at a time
+        if(FindObjectsOfType<Level>().Length > 1)
+        {
+            gameObject.SetActive(false);
+        }
+
         _home = FindObjectOfType<Home>();
         _spawners = FindObjectsOfType<EnemySpawner>();
         _musicPlayer = FindObjectOfType<MusicPlayer>();
