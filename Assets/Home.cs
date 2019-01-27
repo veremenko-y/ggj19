@@ -37,7 +37,7 @@ public class Home : MonoBehaviour
     {
         for(var i = 0; i < _healthBar.Length; i++)
         {
-            _healthBar[i].enabled = (_currentHealth >= i);
+            _healthBar[i].enabled = (_currentHealth - 1 >= i);
         }
     }
 
