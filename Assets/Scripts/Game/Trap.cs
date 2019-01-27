@@ -47,6 +47,8 @@ public class Trap : MonoBehaviour
     {
         if (_remainingCooldownSeconds <= 0f)
         {
+            _animator.SetTrigger("Activate");
+
             _audioSource.clip = _triggerSound;
             _audioSource.Play();
             _remainingCooldownSeconds = _triggerCooldownSeconds;
@@ -61,8 +63,6 @@ public class Trap : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-
-            _animator.SetTrigger("Activate");
         }
     }
 
