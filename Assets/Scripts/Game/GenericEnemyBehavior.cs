@@ -15,13 +15,13 @@ public class GenericEnemyBehavior : MonoBehaviour
     private readonly bool flashing = false;
     private float flashCurrentTime;
 
-    private SpriteRenderer renderer;
+    private SpriteRenderer spriteRenderer;
     private Image[] healthBar;
     private AudioSource audioSource;
 
     void Start()
     {
-        renderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
         currentHealth = MaxHealth;
         healthBar = GetComponentsInChildren(typeof(Image)).Cast<Image>().OrderBy(i => i.name).ToArray();
@@ -50,12 +50,12 @@ public class GenericEnemyBehavior : MonoBehaviour
             if(flashCurrentTime > FlashInterval)
             {
                 flashCurrentTime = 0;
-                renderer.enabled = !renderer.enabled;
+                spriteRenderer.enabled = !spriteRenderer.enabled;
             }
         }
         else
         {
-            renderer.enabled = true;
+            spriteRenderer.enabled = true;
         }
     }
 
