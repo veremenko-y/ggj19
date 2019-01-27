@@ -121,8 +121,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15b4a14ca36b26540b2fd01c5f5b5a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlaceSound: {fileID: 8300000, guid: 0bb47b39425d7ec4880e2cd81bb828e6, type: 3}
-  TriggerSound: {fileID: 8300000, guid: 47ab7a6ea50660742be368757ca46c58, type: 3}
+  Damage: 3
+  _placeSound: {fileID: 8300000, guid: 0bb47b39425d7ec4880e2cd81bb828e6, type: 3}
+  _triggerSound: {fileID: 8300000, guid: 47ab7a6ea50660742be368757ca46c58, type: 3}
   _triggerCooldownSeconds: 5
 --- !u!82 &6260194778695322357
 AudioSource:

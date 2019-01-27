@@ -114,9 +114,13 @@ public class TrapPlacerBehavior : MonoBehaviour
 
         pointsText.text = $"Points: {gameManager.Points}";
 
-        buttons[0].GetComponent<Button>().interactable = gameManager.Points >= SprinklerPrice;
-        buttons[1].GetComponent<Button>().interactable = gameManager.Points >= RakePrice;
-        buttons[2].GetComponent<Button>().interactable = gameManager.Points >= WallPrice;
+        //buttons[0].GetComponent<Button>().interactable = gameManager.Points >= SprinklerPrice;
+        //buttons[1].GetComponent<Button>().interactable = gameManager.Points >= RakePrice;
+        //buttons[2].GetComponent<Button>().interactable = gameManager.Points >= WallPrice;
+        buttons[0].GetComponent<Button>().interactable = true;// gameManager.Points >= SprinklerPrice;
+        buttons[1].GetComponent<Button>().interactable = true;//gameManager.Points >= RakePrice;
+        buttons[2].GetComponent<Button>().interactable = true;//gameManager.Points >= WallPrice;
+
     }
 
     private void DestroyPreviewObject()

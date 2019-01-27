@@ -63,20 +63,25 @@ public class GenericEnemyBehavior : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        OnTriggerStay(other);
+    }
+
     void OnTriggerStay(Collider other)
     {
         if(hitCoolDown <= 0 &&
             other.gameObject.tag == "Trap")
         {
-            HurtEnemy();
+            HurtEnemy(other.GetComponent<Trap>().Damage);
             hitCoolDown = HitCollDownTime;
         }
     }
 
     [Button("Debug Hurt")]
-    void HurtEnemy()
+    void HurtEnemy(int damage)
     {
-        currentHealth--;
+        currentHealth -= damage;
 
         Debug.Log($"{gameObject.name} health {currentHealth}");
 
