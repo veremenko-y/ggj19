@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 6280410601031591834}
   - component: {fileID: 5735441346713461165}
   - component: {fileID: 3606826985498158040}
-  - component: {fileID: 5162074736168937301}
   m_Layer: 0
   m_Name: Sprinkler
   m_TagString: Trap
@@ -123,8 +122,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 1
-  _placeSound: {fileID: 8300000, guid: cae02206c307ba94c81a0c9eac46f464, type: 3}
-  _triggerSound: {fileID: 8300000, guid: e9aa4dabe90424547b22e2c97a94b342, type: 3}
+  _placeSound: {fileID: 8300000, guid: e9aa4dabe90424547b22e2c97a94b342, type: 3}
+  _triggerSound: {fileID: 8300000, guid: cae02206c307ba94c81a0c9eac46f464, type: 3}
   _trapHealth: 5
   _destroyAfterSeconds: 1
   _triggerCooldownSeconds: 5
@@ -243,18 +242,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5162074736168937301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6280410601031591839}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 663b10e69e50ab74e8f9c7ae06246c0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trap: {fileID: 6280410601031591839}
-  level: 1
-  cost: 100
