@@ -61,17 +61,11 @@ public class Trap : MonoBehaviour
             {
                 StartCoroutine(Blink());
             }
-            else if(_trapHealth == 0)
+            else if(_trapHealth <= 0)
             {
-                StartCoroutine(WaitAndDestroy(_destroyAfterSeconds));
+                Destroy(gameObject, _destroyAfterSeconds);
             }
         }
-    }
-
-    IEnumerator WaitAndDestroy(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        Destroy(gameObject);
     }
 
     void Update()
