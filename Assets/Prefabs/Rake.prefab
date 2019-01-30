@@ -125,7 +125,7 @@ MonoBehaviour:
   _placeSound: {fileID: 8300000, guid: 59c4da84446947c41aeaec97a0c9f1f7, type: 3}
   _triggerSound: {fileID: 8300000, guid: 79d59ca662b7c9846958afeb8011fca3, type: 3}
   _trapHealth: 2
-  _destroyAfterSeconds: 1
+  _destroyAfterSeconds: 0.3
   _triggerCooldownSeconds: 5
 --- !u!82 &6260194778695322357
 AudioSource:

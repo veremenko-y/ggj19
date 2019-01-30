@@ -6,6 +6,14 @@ using UnityEngine;
 public class Trap : MonoBehaviour
 {
     public int Damage = 1;
+    public bool CanDamage
+    {
+        // Because trigger on Trap executes before trigger on
+        // the enemy, we need to allow damage to propagate even if
+        // trap health is 0. It is not great approach, but decent
+        // enough bugfix concidering time limits during jam
+        get => _trapHealth >= 0;
+    }
 
     [SerializeField]
     AudioClip _placeSound;
@@ -14,7 +22,7 @@ public class Trap : MonoBehaviour
     [SerializeField]
     int _trapHealth = 5;
     [SerializeField, MinValue(0f)]
-    float _destroyAfterSeconds = 1f;
+    float _destroyAfterSeconds = .3f;
     [SerializeField]
     float _triggerCooldownSeconds = 5f;
     [ShowInInspector, ReadOnly]
@@ -47,7 +55,8 @@ public class Trap : MonoBehaviour
     [Button("Debug Trigger")]
     void TryTrigger()
     {
-        if(_remainingCooldownSeconds <= 0f)
+        if (_trapHealth >= 0 &&
+           _remainingCooldownSeconds <= 0f)
         {
             _animator.SetTrigger("Activate");
 
@@ -57,11 +66,11 @@ public class Trap : MonoBehaviour
             _collider.enabled = false;
             _trapHealth--;
             SetColor(1, .5f, 0);
-            if(_trapHealth <= 1)
+            if (_trapHealth == 1)
             {
                 StartCoroutine(Blink());
             }
-            else if(_trapHealth <= 0)
+            if (_trapHealth <= 0)
             {
                 Destroy(gameObject, _destroyAfterSeconds);
             }
@@ -70,7 +79,7 @@ public class Trap : MonoBehaviour
 
     void Update()
     {
-        if(_remainingCooldownSeconds > 0f)
+        if (_remainingCooldownSeconds > 0f)
         {
             _remainingCooldownSeconds -= Time.deltaTime;
         }
@@ -83,7 +92,7 @@ public class Trap : MonoBehaviour
 
     IEnumerator Blink()
     {
-        while(true)
+        while (true)
         {
             var isClear = _spriteRenderer.color.a == 0;
             SetAlpha(isClear ? 1 : 0);

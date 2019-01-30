@@ -67,8 +67,12 @@ public class GenericEnemyBehavior : MonoBehaviour
     {
         if (other.gameObject.tag == "Trap")
         {
-            HurtEnemy(other.GetComponent<Trap>().Damage);
-            hitCoolDown = HitCollDownTime;
+            var trap = other.GetComponent<Trap>();
+            if (trap.CanDamage)
+            {
+                HurtEnemy(trap.Damage);
+                hitCoolDown = HitCollDownTime;
+            }
         }
     }
 
