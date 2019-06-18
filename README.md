@@ -1,4 +1,9 @@
 # Get Off My Lawn!
+
+[Project Page](https://globalgamejam.org/2019/games/get-my-lawn-3)
+
+[Alternative Repository](https://gitlab.com/churchmf/ggj19)
+
 Our team's entry for a Global Game Jam 2019. Made in 48 horus.
 
 ![Poster](https://ggj.s3.amazonaws.com/styles/game_sidebar__wide/featured_image/2019/01/239782/postersmaller.png)
